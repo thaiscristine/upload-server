@@ -7,6 +7,9 @@
     "dev": "tsx watch --env-file .env src/infra/http/server.ts",
     "test": "dotenv -e .env.test -- vitest run",
     "test:watch": "dotenv -e .env.test -- vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
     "build": "tsc"
   },
   "license": "MIT",
@@ -14,6 +17,7 @@
     "@biomejs/biome": "^2.4.8",
     "@types/node": "^25.5.0",
     "dotenv-cli": "^11.0.0",
+    "drizzle-kit": "^0.31.10",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0"
@@ -23,8 +27,10 @@
     "@fastify/multipart": "^9.4.0",
     "@fastify/swagger": "^9.7.0",
     "@fastify/swagger-ui": "^5.2.5",
+    "drizzle-orm": "^0.45.1",
     "fastify": "^5.8.2",
     "fastify-type-provider-zod": "^6.1.0",
+    "postgres": "^3.4.8",
     "vite-tsconfig-paths": "^6.1.1",
     "zod": "^4.3.6"
   }
