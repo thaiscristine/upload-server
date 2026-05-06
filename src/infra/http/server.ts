@@ -5,12 +5,12 @@ import fastifySwaggerUi from '@fastify/swagger-ui'
 import { fastify } from 'fastify'
 import {
   hasZodFastifySchemaValidationErrors,
-  jsonSchemaTransform,
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { env } from '@/env'
 import { uploadImageRoute } from './routes/upload-image'
+import { transformSwaggerSchema } from './transform-swagger-schema'
 
 const server = fastify()
 
@@ -41,7 +41,7 @@ server.register(fastifySwagger, {
       description: 'API documentation for the upload server',
     },
   },
-  transform: jsonSchemaTransform,
+  transform: transformSwaggerSchema,
 })
 server.register(uploadImageRoute)
 server.register(fastifySwaggerUi, {
