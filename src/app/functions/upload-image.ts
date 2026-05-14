@@ -31,7 +31,6 @@ export async function uploadImage(
     return makeLeft(new InvalidFileFormatError())
   }
 
-  //TODO: upload the image to Cloudflare R2
   console.log(`Uploading file: ${fileName} with content type: ${contentType}`)
 
   const { key, url } = await uploadFileToStorage({

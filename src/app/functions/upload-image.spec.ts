@@ -10,14 +10,16 @@ import { uploadImage } from './upload-image'
 
 describe('upload image', () => {
   beforeAll(() => {
-    vi.mock('@/infra/storage/upload-file-to-storage', () => ({
-      uploadFileToStorage: vi.fn().mockImplementation(() => {
-        return {
-          key: `${randomUUID()}-mocked-file.jpg`,
-          url: 'https://storage-example.com/mocked-key.jpg',
-        }
-      }),
-    }))
+    vi.mock('@/infra/storage/upload-file-to-storage', () => {
+      return {
+        uploadFileToStorage: vi.fn().mockImplementation(() => {
+          return {
+            key: `${randomUUID()}-mocked-file.jpg`,
+            url: 'https://storage-example.com/mocked-key.jpg',
+          }
+        }),
+      }
+    })
   })
 
   it('should upload an image and return the URL', async () => {
