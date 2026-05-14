@@ -9,6 +9,7 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { env } from '@/env'
+import { exportUploadsRoute } from './routes/export-uploads'
 import { getUploadsRoute } from './routes/get-uploads'
 import { uploadImageRoute } from './routes/upload-image'
 import { transformSwaggerSchema } from './transform-swagger-schema'
@@ -47,6 +48,7 @@ server.register(fastifySwagger, {
 
 server.register(uploadImageRoute)
 server.register(getUploadsRoute)
+server.register(exportUploadsRoute)
 
 server.register(fastifySwaggerUi, {
   routePrefix: '/docs',
